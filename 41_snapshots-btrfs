@@ -195,6 +195,7 @@ make_menu_entries()
     for k in "${name_kernel[@]}"; do
         [[ ! -f "${boot_dir}"/"${k}" ]] && continue;
         kversion=${k#*"-"}
+        if [ "${kversion}" = "Image" ]; then kversion="linux"; fi
         for i in "${name_initramfs[@]}"; do
             if [[ "${name_initramfs}" != "x" ]] ; then
                 # prefix_i=${i%%"-"*}
